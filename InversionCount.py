@@ -8,17 +8,19 @@ outputy = []
 def MergeCount(front, back):
     S = []
     c=0
-    while front or back:
-        if not back:
-            S.append(front.pop(0))
-        elif not front:
-            S.append(back.pop(0))
+    i,j=0
+
+    while i<len(front) and j<len(back):
+        if front[i] <= back[j]:
+            S.append(front[i])
+            i+=1
         else:
-            if front[0] < back[0]:
-                S.append(front.pop(0))
-            else:
-                S.append(back.pop(0))
-                c+=len(front)
+            S.append(back[j])
+            j+=1
+            c+=len(front)-i
+
+    S.extend(front[i:])
+    S.extend(back[j:])
     return S,c
 
 def CountSort(size, elems):
