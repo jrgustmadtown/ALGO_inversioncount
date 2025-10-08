@@ -23,7 +23,7 @@ def MergeCount(front, back):
 
 def CountSort(size, elems):
     if size <= 1:
-        return 1
+        return elems, 1
     mid = size // 2
     front, fc = CountSort(mid, elems[:mid])
     back, bc = CountSort(size-mid, elems[mid:])
