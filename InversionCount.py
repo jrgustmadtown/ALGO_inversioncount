@@ -28,7 +28,7 @@ def CountSort(size, elems):
     front, fc = CountSort(mid, elems[:mid])
     back, bc = CountSort(size-mid, elems[mid:])
     merged, c = MergeCount(front, back)
-    return merged, c
+    return merged, c+fc+bc
 
 for _ in range(k):
     j = int(inputy[index])
