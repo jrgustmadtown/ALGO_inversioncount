@@ -14,14 +14,12 @@ def MergeCount(front, back):
         elif not front:
             S.append(back.pop(0))
         else:
-            if front.peek(0) < back.peek(0):
+            if front[0] < back[0]:
                 S.append(front.pop(0))
             else:
                 S.append(back.pop(0))
                 c+=len(front)
     return S,c
-
-
 
 def CountSort(size, elems):
     if size <= 1:
